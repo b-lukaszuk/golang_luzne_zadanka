@@ -1,6 +1,7 @@
 # Book 1
 
-Selected bits from "Practical Go Lessons" written at a whim and used for educational purposes.
+Selected bits from "Practical Go Lessons" by Maximilien Andile.
+The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
 Link to the [book online found here](https://www.practical-go-lessons.com/).
 
