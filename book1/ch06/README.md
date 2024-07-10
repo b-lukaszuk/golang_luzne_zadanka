@@ -9,7 +9,9 @@ Chapter 6
 
 Binary and Decimal.
 
-Link to [the chapter online](https://www.practical-go-lessons.com/chap-6-binary-and-decimal)
+Link to [the chapter online](https://www.practical-go-lessons.com/chap-6-binary-and-decimal).
+
+**Note**, this chapter does not contain code.
 
 ## Caution note
 
