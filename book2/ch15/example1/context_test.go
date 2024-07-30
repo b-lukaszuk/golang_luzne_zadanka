@@ -15,15 +15,20 @@ func (s *SpyStore) Fetch() string {
 }
 
 func TestServer(t *testing.T) {
-	data := "hello, world"
-	svr := Server(&SpyStore{data})
+	t.Run(
+		"getting exemplary data from server",
+		func(t *testing.T) {
 
-	request := httptest.NewRequest(http.MethodGet, "/", nil)
-	response := httptest.NewRecorder()
+			data := "hello, world"
+			svr := Server(&SpyStore{response: data})
 
-	svr.ServeHTTP(response, request)
+			request := httptest.NewRequest(http.MethodGet, "/", nil)
+			response := httptest.NewRecorder()
 
-	if response.Body.String() != data {
-		t.Errorf(`got "%s", want "%s"`, response.Body.String(), data)
-	}
+			svr.ServeHTTP(response, request)
+
+			if response.Body.String() != data {
+				t.Errorf(`got "%s", want "%s"`, response.Body.String(), data)
+			}
+		})
 }
