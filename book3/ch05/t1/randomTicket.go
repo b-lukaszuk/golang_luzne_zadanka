@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"math/rand"
+	"strings"
 	"time"
 )
 
@@ -19,7 +20,7 @@ func getRandSpaceLine() string {
 }
 
 // in mln usd
-func getRandPrice() uint {
+func getRandBasePrice() uint {
 	return getRandNum(36, 51)
 }
 
@@ -42,16 +43,36 @@ func getRandTripType() string {
 }
 
 func getTotalPrice(basePrice uint, days uint, tripType string) uint {
-	totalPrice := float64(basePrice) * (1 + float64(days/20))
-	if tripType == "Round-trip" {
+	// (1 + 1-days/100) because faster ships are more expensive
+	totalPrice := float64(basePrice) * (1 + float64(1-days/100))
+	if strings.Contains(tripType, "Round-trip") {
 		totalPrice *= 2
 	}
 	return uint(totalPrice)
 }
 
+func getHeader() string {
+	return `Spaceline           Days    Trip type       Price
+=================================================
+`
+}
+
+func getRandSingleTicket() string {
+	spaceline := fmt.Sprintf("%-20s", getRandSpaceLine())
+	daysNum := getTimeInDays(getRandSpeed())
+	daysStr := fmt.Sprintf("%-8d", daysNum)
+	tripType := fmt.Sprintf("%-16s", getRandTripType())
+	basePrice := getRandBasePrice()
+	totalPrice := fmt.Sprintf("$ %-3d",
+		getTotalPrice(basePrice, daysNum, tripType))
+	return fmt.Sprintf("%s%s%s%s\n", spaceline, daysStr, tripType, totalPrice)
+}
+
 func main() {
 	fmt.Printf("Printing 10 random fake flights to Mars\n\n")
-	fmt.Printf("%d\n", getTimeInDays(16))
-	fmt.Printf("%d\n", getTimeInDays(30))
+	fmt.Printf(getHeader())
+	for i := 0; i < 10; i++ {
+		fmt.Printf(getRandSingleTicket())
+	}
 	fmt.Printf("\nThat's all. Goodbye!\n")
 }
