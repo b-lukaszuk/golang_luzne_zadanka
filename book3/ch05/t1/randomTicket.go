@@ -30,9 +30,9 @@ func getRandSpeed() uint {
 }
 
 func getTimeInDays(speedKmPerSec uint) uint {
-	// in km from Earth
-	const distToMars = 62100000
-	var timeInDays float64 = float64(distToMars / speedKmPerSec / 3600 / 24)
+	const distToMars = 62.1e6 // km from Earth
+	const secsPerDay = 60 * 60 * 24
+	var timeInDays float64 = float64(distToMars / speedKmPerSec / secsPerDay)
 	return uint(math.Ceil(timeInDays))
 }
 
