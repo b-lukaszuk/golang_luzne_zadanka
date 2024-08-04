@@ -1,4 +1,4 @@
-# Book 2
+# Book 3
 
 Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe R.
 
