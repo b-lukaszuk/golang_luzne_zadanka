@@ -68,7 +68,7 @@ func main() {
 	var codedMsg string = codeMsg(msg, keyword, false)
 	fmt.Printf("%q coded with %q keyword is: %q\n", msg, keyword, codedMsg)
 
-	msg = "I came, I saw, i conquered"
+	msg = "I came, I saw, I conquered"
 	keyword = "golang"
 	codedMsg = codeMsg(msg, keyword, false)
 	fmt.Printf("%q coded with %q keyword is: %q\n", msg, keyword, codedMsg)
