@@ -40,14 +40,14 @@ func (k kelvin) toCelsius() (celsius, error) {
 }
 
 func (f fahrenheit) toKelvin() (kelvin, error) {
-	if f < 0 {
+	if f < -459.67 {
 		return kelvin(0.0), errors.New("temp in deg fahr musn't be below -459.67 deg (0 deg kelvin)")
 	}
 	return kelvin((f + 459.67) * (5.0 / 9.0)), nil
 }
 
 func (f fahrenheit) toCelsius() (celsius, error) {
-	if f < 0 {
+	if f < -459.67 {
 		return celsius(0.0), errors.New("temp in deg fahr musn't be below -459.67 deg (0 deg kelvin)")
 	}
 	return celsius((f - 32.0) * (5.0 / 9.0)), nil
