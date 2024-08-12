@@ -6,6 +6,10 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 # Lesson 16. Arrayed in Splendor.
 
+## Task 1
+
+Write a function to display chessboard with chess pieces (use `kqrbnp` for black and `KQRBNP` for white pieces) at starting positions.
+
 ## Caution note
 
 **The content of this folder may be incorrect, erroneous and/or harmful. Use it at Your own risk.**
