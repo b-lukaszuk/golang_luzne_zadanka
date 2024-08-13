@@ -6,6 +6,10 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 # Lesson 18. A Bigger Slice.
 
+## Task 1
+
+Write a loop to append elements (one at a time) to a slice. Print out the capacity whenever it changes.
+
 ## Caution note
 
 **The content of this folder may be incorrect, erroneous and/or harmful. Use it at Your own risk.**
