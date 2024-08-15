@@ -6,6 +6,10 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 # Lesson 19. The Ever-versatile Map.
 
+## Task 1
+
+Write a classic counter (e.g. for words in a string, or ints in an array of numbers) with a map.
+
 ## Caution note
 
 **The content of this folder may be incorrect, erroneous and/or harmful. Use it at Your own risk.**
