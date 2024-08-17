@@ -114,9 +114,20 @@ func (u Universe) getNumLiveNeighbours(x, y int) int {
 	return count
 }
 
+func (u Universe) shouldCellBeAlive(x, y int) bool {
+	if u[x][y] {
+		return isWithinRange(u.getNumLiveNeighbours(x, y), 2, 4)
+	}
+	return u.getNumLiveNeighbours(x, y) == 3
+}
+
 func (u Universe) getNextState() Universe {
 	newUniverse := getNewUniverse()
-	newUniverse.getRandState()
+	for r := 0; r < height; r++ {
+		for c := 0; c < width; c++ {
+			newUniverse[r][c] = u.shouldCellBeAlive(r, c)
+		}
+	}
 	return newUniverse
 }
 
@@ -145,16 +156,8 @@ func main() {
 	fmt.Printf("You can abort at any time by pressing Ctrl+C.\n")
 	fmt.Scanln(&usrInput)
 
-	// var universe Universe
-	// universe.runGameOfLife(numCycles)
-
-	u := getNewUniverse()
-	u.getRandState()
-	u.print(0)
-	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 0))
-	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 1))
-	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 2))
-	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 3))
+	var universe Universe
+	universe.runGameOfLife(numCycles)
 
 	fmt.Printf("\nThat's all. Goodbye!\n")
 }
