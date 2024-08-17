@@ -50,7 +50,7 @@ func (u Universe) getRandState() {
 	}
 }
 
-// string representation of a field in the universe
+// string representation of a field/cell in the universe
 func getFieldSymbol(field bool) string {
 	if field {
 		return aliveSymbol
@@ -86,6 +86,34 @@ func (u Universe) reprint(cycleNum int) {
 	u.print(cycleNum)
 }
 
+func isWithinRange(num, minInc, maxExcl int) bool {
+	return !(num < minInc || num >= maxExcl)
+}
+
+func isCellWithinRange(x, y int) bool {
+	return isWithinRange(x, 0, height) && isWithinRange(y, 0, width)
+}
+
+func (u Universe) getNumLiveNeighbours(x, y int) int {
+	if !isCellWithinRange(x, y) {
+		return 0
+	}
+	var count int = 0
+	var xi, yi int = 0, 0
+	for r := -1; r <= 1; r++ {
+		for c := -1; c <= 1; c++ {
+			xi, yi = x+r, y+c
+			if (xi == x && yi == y) || !isCellWithinRange(xi, yi) {
+				continue
+			}
+			if u[xi][yi] {
+				count++
+			}
+		}
+	}
+	return count
+}
+
 func (u Universe) getNextState() Universe {
 	newUniverse := getNewUniverse()
 	newUniverse.getRandState()
@@ -117,8 +145,16 @@ func main() {
 	fmt.Printf("You can abort at any time by pressing Ctrl+C.\n")
 	fmt.Scanln(&usrInput)
 
-	var universe Universe
-	universe.runGameOfLife(numCycles)
+	// var universe Universe
+	// universe.runGameOfLife(numCycles)
+
+	u := getNewUniverse()
+	u.getRandState()
+	u.print(0)
+	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 0))
+	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 1))
+	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 2))
+	fmt.Printf("%d\n", u.getNumLiveNeighbours(0, 3))
 
 	fmt.Printf("\nThat's all. Goodbye!\n")
 }
