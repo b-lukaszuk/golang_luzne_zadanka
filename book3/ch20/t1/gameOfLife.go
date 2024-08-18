@@ -131,6 +131,17 @@ func (u Universe) getNextState() Universe {
 	return newUniverse
 }
 
+func (u Universe) areAllCellsDead() bool {
+	for r := 0; r < height; r++ {
+		for c := 0; c < width; c++ {
+			if u[r][c] {
+				return false
+			}
+		}
+	}
+	return true
+}
+
 // prints the universe, runs cycle, repeats
 func (u Universe) runGameOfLife(noOfCycles uint) {
 	// initialization
@@ -143,6 +154,10 @@ func (u Universe) runGameOfLife(noOfCycles uint) {
 		u = u.getNextState()
 		u.reprint(i + 1) // disply cycle in human format 1-n (incl-incl)
 		time.Sleep(delayMs * time.Millisecond)
+		if u.areAllCellsDead() {
+			fmt.Printf("All cells are dead.\n")
+			break
+		}
 	}
 }
 
@@ -152,8 +167,9 @@ func main() {
 	fmt.Printf("Note: your terminal must support ANSI escape codes.\n\n")
 
 	usrInput := "" // start game of life animation on keypress
+	fmt.Printf("The game will run through %d cycles.\n", numCycles)
+	fmt.Printf("You can abort it any time by pressing Ctrl+C.\n")
 	fmt.Printf("Press Enter to begin.\n")
-	fmt.Printf("You can abort at any time by pressing Ctrl+C.\n")
 	fmt.Scanln(&usrInput)
 
 	var universe Universe
