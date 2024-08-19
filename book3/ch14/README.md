@@ -4,7 +4,7 @@ Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe 
 
 The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
-# Lesson 14. First-class functions.
+# Lesson 14. First-class functions
 
 ## Task 1
 

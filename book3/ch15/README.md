@@ -4,7 +4,7 @@ Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe 
 
 The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
-# Lesson 15. Capstone: Temperature Tables.
+# Lesson 15. Capstone: Temperature Tables
 
 ## Task 1
 

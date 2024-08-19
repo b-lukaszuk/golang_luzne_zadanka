@@ -4,7 +4,7 @@ Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe 
 
 The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
-# Lesson 19. The Ever-versatile Map.
+# Lesson 19. The Ever-versatile Map
 
 ## Task 1
 

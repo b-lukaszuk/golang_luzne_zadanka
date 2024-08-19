@@ -4,7 +4,7 @@ Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe 
 
 The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
-# Lesson 11. The Vigenère Cipher.
+# Lesson 11. The Vigenère Cipher
 
 ## Task 1
 

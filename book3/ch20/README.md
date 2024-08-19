@@ -4,7 +4,7 @@ Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe 
 
 The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
-# Lesson 20. Capstone: A Slice of Life.
+# Lesson 20. Capstone: A Slice of Life
 
 ## Task 1
 
