@@ -115,10 +115,11 @@ func (u Universe) getNumLiveNeighbours(x, y int) int {
 }
 
 func (u Universe) shouldCellBeAlive(x, y int) bool {
+	var numLiveNeighbours int = u.getNumLiveNeighbours(x, y)
 	if u[x][y] {
-		return isWithinRange(u.getNumLiveNeighbours(x, y), 2, 4)
+		return isWithinRange(numLiveNeighbours, 2, 4)
 	}
-	return u.getNumLiveNeighbours(x, y) == 3
+	return numLiveNeighbours == 3
 }
 
 func (u Universe) getNextState() Universe {
