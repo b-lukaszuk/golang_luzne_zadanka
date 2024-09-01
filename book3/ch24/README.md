@@ -4,7 +4,22 @@ Selected bits/exercises from "Get Programming with Go" by Youngman N. and Peppe 
 
 The snippets/programs written at a whim, sometimes modified, and used for educational purposes.
 
-# Lesson 23. Interfaces
+# Lesson 24. Interfaces
+
+## Task 1
+
+Write a program that outputs the coordinates (from previous chapters) in JSON format, e.g.
+
+``` json
+{
+    "decimal": 135.9,
+    "dms": "135o54'0.0\" E",
+    "degrees": 135,
+    "minutes": 54,
+    "seconds": 0,
+    "hemisphere": "E"
+}
+```
 
 ## Caution note
 
