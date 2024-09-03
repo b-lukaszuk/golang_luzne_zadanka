@@ -1,3 +1,6 @@
+// simple solution,
+// not idiot/error-proof, not optimized for speed
+
 package main
 
 import (
