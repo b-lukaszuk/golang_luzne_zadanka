@@ -12,7 +12,7 @@ Using `makeEvenGenerator` as an example, write a `makeOddGenerator` function.
 
 ## Task 2
 
-Write a program that recursively calculates a number from the Fibonnaci.
+Write a program that recursively calculates a number from the Fibonnaci sequence.
 
 ## Task 3
 
