@@ -8,10 +8,10 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 ## Task 1
 
-Implement a `character` struct with fields `leftHand` and `rightHand` and methods `pickup(i *item)` and `give(to *character)`. 
+Implement a `character` struct with fields `leftHand` and methods `pickup(i *item)` and `give(to *character)`.
 
-A character, Arthur, is empty-handed (`nil`) when he meets a knight.
-Write a script where Arthur picks up an item and gives it to the knight, displaying an appropriate description for each action.
+A character, Arthur, is empty-handed (`nil`) when he meets a knight (another character).
+Write a script where Arthur picks up an item and gives it to the knight. Display an appropriate description for each action.
 
 ## Caution note
 
