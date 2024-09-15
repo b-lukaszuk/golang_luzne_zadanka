@@ -13,8 +13,6 @@ const (
 	height       = 15
 	turtleSymbol = "Ŏ"
 	emptySymbol  = "."
-	delayMs      = 500
-	numCycles    = 50
 )
 
 type gameField [][]bool
