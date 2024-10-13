@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -58,6 +59,46 @@ func printSudoku(sudoku *[height][width]uint64) {
 		}
 		fmt.Printf("\n")
 	}
+}
+
+func isCollisionInCol(num uint64, curRow, curCol uint,
+	sudoku *[height][width]uint64) bool {
+	for r := 0; r < height; r++ {
+		if uint(r) != curRow && sudoku[r][curCol] == num {
+			return true
+		}
+	}
+	return false
+}
+
+func isCollisionInRow(num uint64, curRow, curCol uint,
+	sudoku *[height][width]uint64) bool {
+	for c := 0; c < width; c++ {
+		if uint(c) != curCol && sudoku[curRow][c] == num {
+			return true
+		}
+	}
+	return false
+}
+
+func isCollisionIn3x3(num uint64, curRow, curCol uint,
+	sudoku *[height][width]uint64) bool {
+	r0 := uint(math.Floor(float64(curRow)/3) * 3)
+	c0 := uint(math.Floor(float64(curCol)/3) * 3)
+	var iRow, iCol uint = 0, 0
+
+	for r := 0; r < 3; r++ {
+		for c := 0; c < 3; c++ {
+			iRow, iCol = r0+uint(r), c0+uint(c)
+			if curRow == iRow && curCol == iCol {
+				continue
+			}
+			if sudoku[iRow][iCol] == num {
+				return true
+			}
+		}
+	}
+	return false
 }
 
 func main() {
