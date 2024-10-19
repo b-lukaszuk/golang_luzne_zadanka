@@ -53,11 +53,22 @@ func getSudoku(path string) ([height][width]uint64, error) {
 }
 
 func printSudoku(sudoku *[height][width]uint64) {
+	// *3 to account for spaces btw nums, +4 to account for | seps
+	fmt.Printf("%s\n", strings.Repeat("-", width*3+4))
+	var row string = ""
 	for r := 0; r < height; r++ {
+		row = "|"
 		for c := 0; c < width; c++ {
-			fmt.Printf("%d\t", sudoku[r][c])
+			row += fmt.Sprintf("% d ", sudoku[r][c])
+			if (c+1)%3 == 0 {
+				row += "|"
+			}
 		}
-		fmt.Printf("\n")
+		fmt.Printf("%s\n", row)
+		if (r+1)%3 == 0 {
+			// *3 to account for spaces btw nums, +4 to account for | seps
+			fmt.Printf("%s\n", strings.Repeat("-", width*3+4))
+		}
 	}
 }
 
@@ -108,6 +119,7 @@ func main() {
 	sudoku, err := getSudoku(path2Sudoku)
 	if err == nil {
 		printSudoku(&sudoku)
+		fmt.Printf("\n")
 	}
 
 	fmt.Printf("\nThat's all. Goodbye!\n")
