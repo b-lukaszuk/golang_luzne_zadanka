@@ -21,6 +21,7 @@ func getWords(path string) ([]string, error) {
 	// content - byteslice, defer f.Close() is inside ReadFile
 	content, err := os.ReadFile(path)
 	if err != nil {
+		fmt.Printf("CANNOT READ FILE %s, %s.", path, err)
 		return make([]string, empty), err
 	}
 	text := string(content)         // byte slice to string
@@ -34,9 +35,10 @@ func putTextArr2Sudoku(textArr *[]string, sudoku *[height][width]uint64) {
 		for c := 0; c < width; c++ {
 			// Base 10, 64-bit size
 			i, err := strconv.ParseUint((*textArr)[counter], 10, 64)
-			if err == nil {
-				sudoku[r][c] = i
+			if err != nil {
+				fmt.Printf("\nCANNOT CONVERT TO UINT, %s.\n", err)
 			}
+			sudoku[r][c] = i
 			counter++
 		}
 	}
@@ -46,6 +48,7 @@ func getSudoku(path string) ([height][width]uint64, error) {
 	textArr, err := getWords(path)
 	var sudoku [height][width]uint64
 	if err != nil {
+		fmt.Printf("CANNOT READ IN SUDOKU, %s", err)
 		return sudoku, err
 	}
 	putTextArr2Sudoku(&textArr, &sudoku)
@@ -168,12 +171,13 @@ func main() {
 	fmt.Printf("It solves a sudoku puzzle (if its solvable).\n\n")
 
 	sudoku, err := getSudoku(path2Sudoku)
-	if err == nil {
-		printSudoku(&sudoku)
-		fmt.Printf("\n")
-		fmt.Printf("Solution(s) (empty line if none found):\n\n")
-		solve(&sudoku)
+	if err != nil {
+		fmt.Printf("AN ERROR OCCURRED, %s", err)
 	}
+	printSudoku(&sudoku)
+	fmt.Printf("\n")
+	fmt.Printf("Solution(s) (empty line if none found):\n\n")
+	solve(&sudoku)
 
 	fmt.Printf("\nThat's all. Goodbye!\n")
 }
