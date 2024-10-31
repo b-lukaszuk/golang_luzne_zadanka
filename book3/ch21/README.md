@@ -8,7 +8,7 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 ## Task 1
 
-In line with the listings from this chapter write a program that displays the JSON endocing of the three rover landing sites.
+In line with the listings from this chapter write a program that displays the JSON encoding of the three rover landing sites.
 
 ## Caution note
 
