@@ -31,6 +31,13 @@ func worker() {
 }
 </pre>
 
+## Task 2
+
+rover.go
+
+Using the RoverDriver type [...], define `Start` and `Stop` methods and
+associated commands to make the rover obey them.
+
 ## Caution note
 
 **The content of this folder may be incorrect, erroneous and/or harmful. Use it at Your own risk.**
