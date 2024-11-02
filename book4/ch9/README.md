@@ -6,6 +6,12 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 # Chapter 9. Testing
 
-## Caution note
+## Task 1
+
+For the 'math.go' (see contents of chapter 8) package and 'math_test.go' (see
+contents of chapter 9) see what will happen if an empty list is passed
+(`[]float64{}`), modify the function to return 0 in this case.
+
+# Caution note
 
 **The content of this folder may be incorrect, erroneous and/or harmful. Use it at Your own risk.**
