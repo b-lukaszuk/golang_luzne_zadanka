@@ -6,7 +6,7 @@ The snippets/programs written at a whim, sometimes modified, and used for educat
 
 # Status
 
-Completed (05-11-2024).
+Completed (11-12-2024).
 
 ## Caution note
 
