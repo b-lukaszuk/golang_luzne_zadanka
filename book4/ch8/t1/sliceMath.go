@@ -10,5 +10,9 @@ import (
 func main() {
 	xs := []float64{1, 2, 3, 4}
 	avg := myMath.Average(xs)
-	fmt.Printf("average of: %v is %.2f", xs, avg)
+	min, max := myMath.Extrema(xs)
+	fmt.Printf("average of: %v is %.2f\n", xs, avg)
+	fmt.Printf("min of: %v is %.2f\n", xs, min)
+	fmt.Printf("max of: %v is %.2f\n", xs, max)
+	fmt.Printf("That is all. Goodbye!\n")
 }

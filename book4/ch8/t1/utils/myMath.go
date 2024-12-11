@@ -7,3 +7,36 @@ func Average(xs []float64) float64 {
 	}
 	return total / float64(len(xs))
 }
+
+func Min(xs []float64) float64 {
+	min := xs[1]
+	for _, x := range xs {
+		if x < min {
+			min = x
+		}
+	}
+	return min
+}
+
+func Max(xs []float64) float64 {
+	max := xs[1]
+	for _, x := range xs {
+		if x > max {
+			max = x
+		}
+	}
+	return max
+}
+
+func Extrema(xs []float64) (float64, float64) {
+	min, max := xs[1], xs[1]
+	for _, x := range xs {
+		if x < min {
+			min = x
+		}
+		if x > max {
+			max = x
+		}
+	}
+	return min, max
+}
